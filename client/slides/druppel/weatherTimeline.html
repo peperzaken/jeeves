@@ -1,0 +1,39 @@
+<template name="weatherTimeline">
+    <div class="weather-timeline">
+        {{#each weatherEntries}}
+        <div class="weather-col col{{index}}">
+            {{#if noRain this}}
+                {{#if now this}}
+                <span class="weather-time-text-alt">
+                    {{#if isQuarter this}}
+                    {{time}}
+                    {{/if}}
+                </span>
+                <img src="now-icon.png" class="now-icon-alt">
+                {{else}}
+                <span class="weather-time-text-alt-2">
+                    {{#if isQuarter this}}
+                    {{time}}
+                    {{/if}}
+                </span>
+                {{/if}}
+            {{else}}
+                {{#if now this}}
+                <img src="now-icon.png" class="now-icon">
+                {{/if}}
+
+                <span class="weather-time-text">
+                    {{#if isQuarter this}}
+                    {{time}}
+                    {{/if}}
+                </span>
+                {{#if raining this}}
+                <img src="rain-icon.png" class="raining-icon">
+                {{/if}}
+            {{/if}}
+
+        </div>
+        {{/each}}
+        <div class="{{backgroundClass}}"></div>
+    </div>
+</template>

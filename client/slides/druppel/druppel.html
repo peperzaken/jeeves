@@ -1,0 +1,38 @@
+<template name="druppel">
+    <div id="outer-druppel" class="container-fluid inactive">
+        <div class="row-fluid top-row-druppel">
+            <div class="col-md-12 header-text-druppel">WEATHER</div>
+        </div>
+
+        {{#isolate}}
+        <div class="row-fluid center-row {{backgroundClass}}">
+            <div class="col-md-12">
+                {{#if minutesToRain}}
+                {{> rainy}}
+                {{/if}}
+                {{#if minutesToDry}}
+                {{> sunny}}
+                {{/if}}
+                {{#if doesntStopRaining}}
+                {{> rainy}}
+                {{/if}}
+                {{#if staysClear}}
+                {{> sunny}}
+                {{/if}}
+                {{> weatherTimeline}}
+                {{current_slide "druppel"}}
+            </div>
+        </div>
+        {{/isolate}}
+
+        <div class="row-fluid bottom-row">
+            <div class="col-md-11 app-stars">
+                {{> slideCountdown}}
+            </div>
+            <div class="col-md-1">
+                {{> clock}}
+            </div>
+        </div>
+
+    </div>
+</template>

@@ -1,0 +1,579 @@
+@font-face {
+    font-family: 'lobster_1.3regular';
+    src: url('/fonts/lobster_1.3-webfont.eot');
+    src: url('/fonts/lobster_1.3-webfont.eot?#iefix') format('embedded-opentype'),
+    url('/fonts/lobster_1.3-webfont.woff') format('woff'),
+    url('/fonts/lobster_1.3-webfont.ttf') format('truetype'),
+    url('/fonts/lobster_1.3-webfont.svg#lobster_1.3regular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+.container-fluid {
+    width: 1920px;
+    height: 1080px;
+    padding: 0;
+}
+
+.top-row-beertime {
+    height: 132px;
+    background-color: #FFC100;
+}
+
+.header-text-beertime {
+    position: relative;
+    left: 706px;
+    top: 32px;
+    font-size: 57px;
+    color: #031C3E;
+    font-family: 'source_sans_prosemibold';
+}
+
+.center-row-beertime {
+    background-color: #031C3E;
+}
+
+.beer-text {
+    position: relative;
+    top: 0;
+    left: 1px;
+}
+
+.beer-foam {
+    position: relative;
+    top: 705px;
+    left: 1px;
+}
+
+#beer-glass {
+    position: relative;
+    top: -40px;
+    left: 1128px;
+    height: 446px;
+    width: 194px;
+    background-image: url('/beer-bubbles.png'), url('/beer.png'), url('/beer-foam.png');
+    background-repeat: no-repeat;
+    background-position: 50% -175%, 0% 117%, 0% -355%;
+    -webkit-animation-iteration-count: 1;
+    animation-iteration-count: 1;
+    -webkit-animation-fill-mode: forwards;
+    animation-fill-mode: forwards;
+}
+
+@keyframes fillBeer-12-12
+{
+    0%   {background-position: 15px -175%, 0% -355%, 0% 117%;}
+    100% {background-position: 15px -175%, 0% -351%, 6% 113%;}
+}
+
+@-webkit-keyframes fillBeer-12-12
+{
+    0%   {background-position: 15px -175%, 0% -355%, 0% 117%;}
+    100% {background-position: 15px -175%, 0% -351%, 6% 113%;}
+}
+
+@keyframes bubbleUp-12-12
+{
+    0%   {background-position: 15px -175%, 0% -351%, 6% 113%;}
+    100% {background-position: 15px -170%, 0% -351%, 6% 113%;}
+}
+
+@-webkit-keyframes bubbleUp-12-12
+{
+    0%   {background-position: 15px -175%, 0% -351%, 6% 113%;}
+    100% {background-position: 15px -170%, 0% -351%, 6% 113%;}
+}
+
+@keyframes fillBeer-12-24
+{
+    0%   {background-position: 15px -175%, 0% -355%, 0% 117%;}
+    100% {background-position: 15px -175%, 0% -338%,  6% 108%;}
+}
+
+@-webkit-keyframes fillBeer-12-24 {
+    0%   {background-position: 15px -175%, 0% -355%, 0% 117%;}
+    100% {background-position: 15px -175%, 0% -338%,  6% 108%;}
+}
+
+@keyframes bubbleUp-12-24
+{
+    0%   {background-position: 15px -175%, 0% -338%, 6% 108%;}
+    100% {background-position: 15px -161%, 0% -338%, 6% 108%;}
+}
+
+@-webkit-keyframes bubbleUp-12-24
+{
+    0%   {background-position: 15px -175%, 0% -338%, 6% 108%;}
+    100% {background-position: 15px -161%, 0% -338%, 6% 108%;}
+}
+
+@keyframes fillBeer-12-36
+{
+    0%   {background-position: 15px -175%, 0% -355%, 0% 117%;}
+    100% {background-position: 15px -175%, 0% -323%, 12% 100%;}
+}
+
+@-webkit-keyframes fillBeer-12-36
+{
+    0%   {background-position: 15px -175%, 0% -355%, 0% 117%;}
+    100% {background-position: 15px -175%, 0% -323%, 12% 100%;}
+}
+
+@keyframes bubbleUp-12-36
+{
+    0%   {background-position: 15px -175%, 0% -323%, 12% 100%;}
+    100% {background-position: 15px -149%, 0% -323%, 12% 100%;}
+}
+
+@-webkit-keyframes bubbleUp-12-36
+{
+    0%   {background-position: 15px -175%, 0% -323%, 12% 100%;}
+    100% {background-position: 15px -149%, 0% -323%, 12% 100%;}
+}
+
+@keyframes fillBeer-12-48
+{
+    0%   {background-position: 15px -175%, 0% -355%, 0% 117%;}
+    100% {background-position: 15px -175%, 0% -309%, 18% 94%;}
+}
+
+@-webkit-keyframes fillBeer-12-48
+{
+    0%   {background-position: 15px -175%, 0% -355%, 0% 117%;}
+    100% {background-position: 15px -175%, 0% -309%, 18% 94%;}
+}
+
+@keyframes bubbleUp-12-48
+{
+    0%   {background-position: 15px -175%, 0% -309%, 18% 94%;}
+    100% {background-position: 15px -140%, 0% -309%, 18% 94%;}
+}
+
+@-webkit-keyframes bubbleUp-12-48
+{
+    0%   {background-position: 15px -175%, 0% -309%, 18% 94%;}
+    100% {background-position: 15px -140%, 0% -309%, 18% 94%;}
+}
+
+@keyframes fillBeer-13-00
+{
+    0%   {background-position: 15px -175%, 0% -355%, 0% 117%;}
+    100% {background-position: 15px -175%, 0% -291%, 24% 85%;}
+}
+
+@-webkit-keyframes fillBeer-13-00
+{
+    0%   {background-position: 15px -175%, 0% -355%, 0% 117%;}
+    100% {background-position: 15px -175%, 0% -291%, 24% 85%;}
+}
+
+@keyframes bubbleUp-13-00
+{
+    0%   {background-position: 15px -175%, 0% -291%, 24% 85%;}
+    100% {background-position: 15px -127%, 0% -291%, 24% 85%;}
+}
+
+@-webkit-keyframes bubbleUp-13-00
+{
+    0%   {background-position: 15px -175%, 0% -291%, 24% 85%;}
+    100% {background-position: 15px -127%, 0% -291%, 24% 85%;}
+}
+
+@keyframes fillBeer-13-12
+{
+    0%   {background-position: 15px -175%, 0% -355%, 0% 117%;}
+    100% {background-position: 15px -175%, 0% -276%, 30% 79%;}
+}
+
+@-webkit-keyframes fillBeer-13-12
+{
+    0%   {background-position: 15px -175%, 0% -355%, 0% 117%;}
+    100% {background-position: 15px -175%, 0% -276%, 30% 79%;}
+}
+
+@keyframes bubbleUp-13-12
+{
+    0%   {background-position: 15px -175%, 0% -276%, 30% 79%;}
+    100% {background-position: 15px -119%, 0% -276%, 30% 79%;}
+}
+
+@-webkit-keyframes bubbleUp-13-12
+{
+    0%   {background-position: 15px -175%, 0% -276%, 30% 79%;}
+    100% {background-position: 15px -119%, 0% -276%, 30% 79%;}
+}
+
+@keyframes fillBeer-13-24
+{
+    0%   {background-position: 15px -175%, 0% -355%, 0% 117%;}
+    100% {background-position: 15px -175%, 0% -261%, 36% 74%;}
+}
+
+@-webkit-keyframes fillBeer-13-24
+{
+    0%   {background-position: 15px -175%, 0% -355%, 0% 117%;}
+    100% {background-position: 15px -175%, 0% -261%, 36% 74%;}
+}
+
+@keyframes bubbleUp-13-24
+{
+    0%   {background-position: 15px -175%, 0% -261%, 36% 74%;}
+    100% {background-position: 15px -111%, 0% -261%, 36% 74%;}
+}
+
+@-webkit-keyframes bubbleUp-13-24
+{
+    0%   {background-position: 15px -175%, 0% -261%, 36% 74%;}
+    100% {background-position: 15px -111%, 0% -261%, 36% 74%;}
+}
+
+@keyframes fillBeer-13-36
+{
+    0%   {background-position: 15px -175%, 0% -355%, 0% 117%;}
+    100% {background-position: 15px -175%, 0% -248%, 42% 69%;}
+}
+
+@-webkit-keyframes fillBeer-13-36
+{
+    0%   {background-position: 15px -175%, 0% -355%, 0% 117%;}
+    100% {background-position: 15px -175%, 0% -248%, 42% 69%;}
+}
+
+@keyframes bubbleUp-13-36
+{
+    0%   {background-position: 15px -175%, 0% -248%, 42% 69%;}
+    100% {background-position: 15px -104%, 0% -248%, 42% 69%;}
+}
+
+@-webkit-keyframes bubbleUp-13-36
+{
+    0%   {background-position: 15px -175%, 0% -248%, 42% 69%;}
+    100% {background-position: 15px -104%, 0% -248%, 42% 69%;}
+}
+
+@keyframes fillBeer-13-48
+{
+    0%   {background-position: 15px -175%, 0% -355%, 0% 117%;}
+    100% {background-position: 15px -175%, 0% -234%, 48% 63%;}
+}
+
+@-webkit-keyframes fillBeer-13-48
+{
+    0%   {background-position: 15px -175%, 0% -355%, 0% 117%;}
+    100% {background-position: 15px -175%, 0% -234%, 48% 63%;}
+}
+
+@keyframes bubbleUp-13-48
+{
+    0%   {background-position: 15px -175%, 0% -234%, 48% 63%;}
+    100% {background-position: 15px -96%, 0% -234%, 48% 63%;}
+}
+
+@-webkit-keyframes bubbleUp-13-48
+{
+    0%   {background-position: 15px -175%, 0% -234%, 48% 63%;}
+    100% {background-position: 15px -96%, 0% -234%, 48% 63%;}
+}
+
+@keyframes fillBeer-14-00
+{
+    0%   {background-position: 15px -175%, 0% -355%, 0% 117%;}
+    100% {background-position: 15px -175%, 0% -216%, 54% 54%;}
+}
+
+@-webkit-keyframes fillBeer-14-00
+{
+    0%   {background-position: 15px -175%, 0% -355%, 0% 117%;}
+    100% {background-position: 15px -175%, 0% -216%, 54% 54%;}
+}
+
+@keyframes bubbleUp-14-00
+{
+    0%   {background-position: 15px -175%, 0% -216%, 54% 54%;}
+    100% {background-position: 15px -82%, 0% -216%, 54% 54%;}
+}
+
+@-webkit-keyframes bubbleUp-14-00
+{
+    0%   {background-position: 15px -175%, 0% -216%, 54% 54%;}
+    100% {background-position: 15px -82%, 0% -216%, 54% 54%;}
+}
+
+@keyframes fillBeer-14-12
+{
+    0%   {background-position: 15px -175%, 0% -355%, 0% 117%;}
+    100% {background-position: 15px -175%, 0% -201%, 60% 48%;}
+}
+
+@-webkit-keyframes fillBeer-14-12
+{
+    0%   {background-position: 15px -175%, 0% -355%, 0% 117%;}
+    100% {background-position: 15px -175%, 0% -201%, 60% 48%;}
+}
+
+@keyframes bubbleUp-14-12
+{
+    0%   {background-position: 15px -173%, 0% -201%, 60% 48%;}
+    100% {background-position: 15px -74%, 0% -201%, 60% 48%;}
+}
+
+@-webkit-keyframes bubbleUp-14-12
+{
+    0%   {background-position: 15px -173%, 0% -201%, 60% 48%;}
+    100% {background-position: 15px -74%, 0% -201%, 60% 48%;}
+}
+
+@keyframes fillBeer-14-24
+{
+    0%   {background-position: 15px -175%, 0% -355%, 0% 117%;}
+    100% {background-position: 15px -175%, 0% -188%, 66% 43%;}
+}
+
+@-webkit-keyframes fillBeer-14-24
+{
+    0%   {background-position: 15px -175%, 0% -355%, 0% 117%;}
+    100% {background-position: 15px -175%, 0% -188%, 66% 43%;}
+}
+
+@keyframes bubbleUp-14-24
+{
+    0%   {background-position: 15px -175%, 0% -188%, 66% 43%;}
+    100% {background-position: 15px -65%, 0% -188%, 66% 43%;}
+}
+
+@-webkit-keyframes bubbleUp-14-24
+{
+    0%   {background-position: 15px -175%, 0% -188%, 66% 43%;}
+    100% {background-position: 15px -65%, 0% -188%, 66% 43%;}
+}
+
+@keyframes fillBeer-14-36
+{
+    0%   {background-position: 15px -175%, 0% -355%, 0% 117%;}
+    100% {background-position: 15px -175%, 0% -174%, 72% 37%;}
+}
+
+@-webkit-keyframes fillBeer-14-36
+{
+    0%   {background-position: 15px -175%, 0% -355%, 0% 117%;}
+    100% {background-position: 15px -175%, 0% -174%, 72% 37%;}
+}
+
+@keyframes bubbleUp-14-36
+{
+    0%   {background-position: 15px -175%, 0% -174%, 72% 37%;}
+    100% {background-position: 15px -57%, 0% -174%, 72% 37%;}
+}
+
+@-webkit-keyframes bubbleUp-14-36
+{
+    0%   {background-position: 15px -175%, 0% -174%, 72% 37%;}
+    100% {background-position: 15px -57%, 0% -174%, 72% 37%;}
+}
+
+@keyframes fillBeer-14-48
+{
+    0%   {background-position: 15px -175%, 0% -355%, 0% 117%;}
+    100% {background-position: 15px -175%, 0% -161%, 78% 36%}
+}
+
+@-webkit-keyframes fillBeer-14-48
+{
+    0%   {background-position: 15px -175%, 0% -355%, 0% 117%;}
+    100% {background-position: 15px -175%, 0% -161%, 78% 36%}
+}
+
+@keyframes bubbleUp-14-48
+{
+    0%   {background-position: 15px -175%, 0% -161%, 78% 36%}
+    100% {background-position: 15px -55%, 0% -161%, 78% 36%;}
+}
+
+@-webkit-keyframes bubbleUp-14-48
+{
+    0%   {background-position: 15px -175%, 0% -161%, 78% 36%}
+    100% {background-position: 15px -55%, 0% -161%, 78% 36%;}
+}
+
+@keyframes fillBeer-15-00
+{
+    0%   {background-position: 15px -175%, 0% -355%, 0% 117%;}
+    100% {background-position: 15px -175%, 0% -146%, 84% 30%;}
+}
+
+@-webkit-keyframes fillBeer-15-00
+{
+    0%   {background-position: 15px -175%, 0% -355%, 0% 117%;}
+    100% {background-position: 15px -175%, 0% -146%, 84% 30%;}
+}
+
+@keyframes bubbleUp-15-00
+{
+    0%   {background-position: 15px -175%, 0% -146%, 84% 30%;}
+    100% {background-position: 15px -47%, 0% -146%, 84% 30%;}
+}
+
+@-webkit-keyframes bubbleUp-15-00
+{
+    0%   {background-position: 15px -175%, 0% -146%, 84% 30%;}
+    100% {background-position: 15px -47%, 0% -146%, 84% 30%;}
+}
+
+@keyframes fillBeer-15-12
+{
+    0%   {background-position: 15px -175%, 0% -355%, 0% 117%;}
+    100% {background-position: 15px -175%, 0% -124%, 90% 22%}
+}
+
+@-webkit-keyframes fillBeer-15-12
+{
+    0%   {background-position: 15px -175%, 0% -355%, 0% 117%;}
+    100% {background-position: 15px -175%, 0% -124%, 90% 22%}
+}
+
+@keyframes bubbleUp-15-12
+{
+    0%   {background-position: 15px -175%, 0% -124%, 90% 22%}
+    100% {background-position: 15px -35%, 0% -124%, 90% 22%;}
+}
+
+@-webkit-keyframes bubbleUp-15-12
+{
+    0%   {background-position: 15px -175%, 0% -124%, 90% 22%}
+    100% {background-position: 15px -35%, 0% -124%, 90% 22%;}
+}
+
+@keyframes fillBeer-15-24
+{
+    0%   {background-position: 15px -175%, 0% -355%, 0% 117%;}
+    100% {background-position: 15px -175%, 0% -112%, 96% 18%;}
+}
+
+@-webkit-keyframes fillBeer-15-24
+{
+    0%   {background-position: 15px -175%, 0% -355%, 0% 117%;}
+    100% {background-position: 15px -175%, 0% -112%, 96% 18%;}
+}
+
+@keyframes bubbleUp-15-24
+{
+    0%   {background-position: 15px -175%, 0% -112%, 96% 18%;}
+    100% {background-position: 15px -29%, 0% -112%, 96% 18%;}
+}
+
+@-webkit-keyframes bubbleUp-15-24
+{
+    0%   {background-position: 15px -175%, 0% -112%, 96% 18%;}
+    100% {background-position: 15px -29%, 0% -112%, 96% 18%;}
+}
+
+@keyframes fillBeer-15-36
+{
+    0%   {background-position: 15px -175%, 0% -355%, 0% 117%;}
+    100% {background-position: 15px -175%, 0% -98%, 100% 13%;}
+}
+
+@-webkit-keyframes fillBeer-15-36
+{
+    0%   {background-position: 15px -175%, 0% -355%, 0% 117%;}
+    100% {background-position: 15px -175%, 0% -98%, 100% 13%;}
+}
+
+@keyframes bubbleUp-15-36
+{
+    0%   {background-position: 15px -175%, 0% -98%, 100% 13%;}
+    100% {background-position: 15px -22%, 0% -98%, 100% 13%;}
+}
+
+@-webkit-keyframes bubbleUp-15-36
+{
+    0%   {background-position: 15px -175%, 0% -98%, 100% 13%;}
+    100% {background-position: 15px -22%, 0% -98%, 100% 13%;}
+}
+
+@keyframes fillBeer-15-48
+{
+    0%   {background-position: 15px -175%, 0% -355%, 0% 117%;}
+    100% {background-position: 15px -175%, 0% -83%, 100% 9%;}
+}
+
+@-webkit-keyframes fillBeer-15-48
+{
+    0%   {background-position: 15px -175%, 0% -355%, 0% 117%;}
+    100% {background-position: 15px -175%, 0% -83%, 100% 9%;}
+}
+
+@keyframes bubbleUp-15-48
+{
+    0%   {background-position: 15px -175%, 0% -83%, 100% 9%;}
+    100% {background-position: 15px -16%, 0% -83%, 100% 9%;}
+}
+
+@-webkit-keyframes bubbleUp-15-48
+{
+    0%   {background-position: 15px -175%, 0% -83%, 100% 9%;}
+    100% {background-position: 15px -16%, 0% -83%, 100% 9%;}
+}
+
+@keyframes fillBeer-16-00
+{
+    0%   {background-position: 15px -175%, 0% -355%, 0% 117%;}
+    100% {background-position: 15px -175%, 0% -74%, 100% 3%;}
+}
+
+@-webkit-keyframes fillBeer-16-00
+{
+    0%   {background-position: 15px -175%, 0% -355%, 0% 117%;}
+    100% {background-position: 15px -175%, 0% -74%, 100% 3%;}
+}
+
+@keyframes bubbleUp-16-00
+{
+    0%   {background-position: 2px -175%, 0% -74%, 100% 3%;}
+    100% {background-position: 2px 248%, 0% -74%, 100% 3%;}
+}
+
+@-webkit-keyframes bubbleUp-16-00
+{
+    0%   {background-position: 2px -175%, 0% -74%, 100% 3%;}
+    100% {background-position: 2px 248%, 0% -74%, 100% 3%;}
+}
+
+.vrijdag {
+    position: relative;
+    top: 161px;
+    left: 317px;
+    display: inline-block;
+    font-family: 'lobster_1.3regular';
+    font-size: 168px;
+    color: white;
+    -webkit-transform: rotate(352deg);
+    -moz-transform: rotate(352deg);
+    -o-transform: rotate(352deg);
+    writing-mode: lr-tb;
+}
+
+.vier-uur {
+    display: inline-block;
+    position: relative;
+    top: 340px;
+    left: -315px;
+    font-size: 91px;
+    display: inline-block;
+    font-family: 'lobster_1.3regular';
+    -webkit-transform: rotate(352deg);
+    -moz-transform: rotate(352deg);
+    -o-transform: rotate(352deg);
+    color: white;
+}
+
+.big-vier-uur {
+    font-family: 'lobster_1.3regular';
+    color: #FFC100;
+}
+
+.time-scale {
+    position: relative;
+    top: -409px;
+    left: 1344px;
+}

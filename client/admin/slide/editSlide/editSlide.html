@@ -1,0 +1,126 @@
+<template name="editSlide">
+    {{#unless isAdmin}}
+        {{redirectToLogin}}
+    {{/unless}}
+    <style>
+        html, body {
+            min-width: 0;
+            min-height: 0;
+            background-color: #F8F8F8 !important;
+            /* The html and body elements cannot have any padding or margin. */
+        }
+    </style>
+    <script src="slidebars.min.js"></script>
+    <link rel="stylesheet" href="slidebars.min.css">
+    <div class="col-md2 sidebar-mobile" data-spy="affix">
+        <div class="boundaries-menu sb-toggle-left"><span class="glyphicon glyphicon-align-justify span-class-mobile"></span></div>
+        <img src="admin/mobile-banner.png" class="mobile-banner-img">
+    </div>
+    <div id="sb-site">
+        <div class="main-panel">
+            <div class="row">
+                <div class="col-md-2 sidebar-desktop">
+                    {{> sidebarDesktop}}
+                </div>
+                <div class="col-md-10 main-panel-body main-edit-slide">
+                    <h1>Edit your slides</h1>
+                    {{#unless editRecord}}
+                    <table class="table-responsive">
+                        <thead>
+                        <tr>
+                            <th>Slide</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+
+                        {{#each slides}}
+                        <tr>
+                            <td>{{name}}</td>
+                            <td>
+                                <button type="button" class="editButton btn btn-default">Edit</button>
+                                <button type="button" class="deleteButton btn btn-default">Delete</button>
+                            </td>
+                        </tr>
+                        {{/each}}
+                        </tbody>
+                    </table>
+                    {{else}}
+                    {{#with currentRecord}}
+                    <form role="form" class="form-horizontal">
+                        <div class="form-group">
+                            <label for="{{name}}">Name</label>
+                            <input id="{{name}}" type="text" value="{{name}}" class="name form-control">
+                        </div>
+                        <div class="form-group">
+                            <label for="category">Category</label>
+                            <select id="category" class="category form-control">
+                                <option {{select this "all"}}>all</option>
+                                <option {{select this "dev"}}>dev</option>
+                                <option {{select this "sales"}}>sales</option>
+                                <option {{select this "HRM"}}>HRM</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="screenTime">Screentime (in seconds)</label>
+                            <input id="screenTime" type="text" value="{{formatScreenTime screenTime}}" class="screenTime form-control">
+                        </div>
+                    </form>
+                    {{/with}}
+                    {{/unless}}
+
+                    <!-- Calendar -->
+                    {{#if editRecord}}
+                    <!-- Time slot -->
+                    <form role="form" class="form-horizontal">
+                        {{#with currentRecord}}
+                        {{#each day name}}
+                        <div class="form-group">
+                            <label class="col-lg-3 control-label input-sm">{{name}}</label>
+                            <div class="col-lg-7">
+                                <div class="form-inline">
+                                    <div class="form-group">
+                                        <div class="col-lg-5">
+                                            <label class="sr-only" for="fromMonday">From</label>
+                                            {{{from}}}
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="col-lg-5">
+                                            <label class="sr-only" for="toMonday">To</label>
+                                            {{{to}}}
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="col-lg-5">
+                                            <label for="all{{name}}">All day</label>
+                                            {{#if checked}}
+                                            <input type="checkbox" id="all{{name}}" checked>
+                                            {{else}}
+                                            <input type="checkbox" id="all{{name}}">
+                                            {{/if}}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        {{/each}}
+                        {{/with}}
+                        <div class="form-group">
+                            <button type="button" class="saveButton btn btn-default">Save</button>
+                            <button type="button" class="cancelButton btn btn-default">Cancel</button>
+                        </div>
+                    </form>
+                    <!-- /Time slot -->
+                    {{loadTimepicker}}
+                    {{/if}}
+                    <!-- /Calendar -->
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="sb-slidebar sb-left">
+        {{> slidebar}}
+    </div>
+</template>

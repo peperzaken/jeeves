@@ -1,0 +1,18 @@
+<template name="welcome">
+    <style>
+        html, body {
+            min-width: 0;
+            min-height: 0;
+            background-color: #F8F8F8 !important;
+            /* The html and body elements cannot have any padding or margin. */
+        }
+    </style>
+    <div class="jeeves-admin-banner">
+        <img src="admin/desktop-banner.png" class="desktop-banner">
+    </div>
+    <div class="container">
+        <h1 class="welcome-message">{{welcomeMessage}}</h1>
+        <img class="welcome-loader" src="loader.GIF">
+    </div>
+    {{current_slide "welcome"}}
+</template>

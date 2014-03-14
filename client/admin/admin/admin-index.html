@@ -1,0 +1,24 @@
+<template name="admin-index">
+    <script src="slidebars.min.js"></script>
+    <link rel="stylesheet" href="slidebars.min.css">
+    <div class="col-md2 sidebar-mobile" data-spy="affix">
+        <div class="boundaries-menu sb-toggle-left"><span class="glyphicon glyphicon-align-justify span-class-mobile"></span></div>
+        <img src="admin/mobile-banner.png" class="mobile-banner-img">
+    </div>
+    <div id="sb-site">
+        <div class="main-panel">
+            <div class="row">
+                <div class="col-md-2 sidebar-desktop">
+                    {{> sidebarDesktop}}
+                </div>
+                <div class="col-md-10 main-panel-body">
+                    <h2>Welcome to the Jeeves administration panel</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="sb-slidebar sb-left">
+        {{> slidebar}}
+    </div>
+</template>

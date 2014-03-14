@@ -1,0 +1,15 @@
+<template name="rainy">
+    <div class="umbrella">
+        <img src="umbrella.png">
+    </div>
+    {{#if minutesToRain}}
+    <div class="weather-div">
+        <span class="weather-text">It stops in {{minutesToRain}} minutes.</span>
+    </div>
+    {{/if}}
+    {{#if doesntStopRaining}}
+    <div class="weather-div">
+        <span class="weather-text">It wont stop raining for at least 2 hours.</span>
+    </div>
+    {{/if}}
+</template>

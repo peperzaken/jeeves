@@ -1,0 +1,61 @@
+<template name="account">
+    {{#unless isAdmin}}
+        {{redirectToLogin}}
+    {{/unless}}
+    <style>
+        html, body {
+            min-width: 0;
+            min-height: 0;
+            background-color: #F8F8F8 !important;
+            /* The html and body elements cannot have any padding or margin. */
+        }
+    </style>
+    <script src="slidebars.min.js"></script>
+    <link rel="stylesheet" href="slidebars.min.css">
+    <div class="col-md2 sidebar-mobile" data-spy="affix">
+        <div class="boundaries-menu sb-toggle-left"><span class="glyphicon glyphicon-align-justify span-class-mobile"></span></div>
+        <img src="admin/mobile-banner.png" class="mobile-banner-img">
+    </div>
+    <div id="sb-site">
+        <div class="main-panel">
+            <div class="row">
+                <div class="col-md-2 sidebar-desktop">
+                    {{> sidebarDesktop}}
+                </div>
+                <div class="col-md-10 main-panel-body main-edit-slide">
+                    <h1>Account</h1>
+                    <div class="control-group">
+                        <label class="control-label" for="username">Username</label>
+
+                        <div class="controls">
+                            <input type="text" id="username" value="{{username}}" disabled="disabled">
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <label class="control-label" for="old-password">Old password</label>
+
+                        <div class="controls">
+                            <input type="password" id="old-password" placeholder="Enter your old password">
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <label class="control-label" for="new-password">New password</label>
+
+                        <div class="controls">
+                            <input type="password" id="new-password" placeholder="Enter a new password">
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <div class="controls" style="margin: 0 !important">
+                            <button id="save" type="submit" class="btn btn-primary">Save</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="sb-slidebar sb-left">
+        {{> slidebar}}
+    </div>
+</template>

@@ -1,0 +1,13 @@
+<template name="sunny">
+    <img src="sun.png" class="sun">
+    {{#if minutesToDry}}
+    <div class="weather-div">
+        <span class="weather-text">It starts in {{minutesToDry}} minutes.</span>
+    </div>
+    {{/if}}
+    {{#if staysClear}}
+    <div class="weather-div">
+        <span class="weather-text">It stays clear for at least 2 hours.</span>
+    </div>
+    {{/if}}
+</template>

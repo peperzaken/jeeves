@@ -1,0 +1,159 @@
+.container-fluid {
+    width: 1920px;
+    height: 1080px;
+    padding: 0;
+}
+
+.top-row-druppel {
+    height: 132px;
+    background-color: #283E50;
+}
+
+.header-text-druppel {
+    text-align: center;
+    top: 20px;
+    font-size: 70px;
+    color: white;
+    font-family: 'source_sans_prosemibold';
+}
+
+.center-row-druppel-rainy {
+    background-color: #5DBCDD;
+}
+
+.center-row-druppel-sunny {
+    background-color: #F3B204;
+}
+
+.weather-div {
+    height: 80px;
+    position: relative;
+    width: 1200px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    top: -230px;
+}
+
+.weather-text {
+    display: block;
+    width: 1200px;
+    height: 100%;
+    margin: 0 auto;
+    font-family: 'source_sans_proregular';
+    text-align: center;
+    color: white;
+    font-size: 70px;
+}
+
+.sun {
+    position: relative;
+    top: 240px;
+    left: 790px;
+}
+
+.weather-col {
+    font-size: 41px;
+    color: white;
+    display: inline-block;
+    width: 60px;
+}
+
+.weather-timeline {
+    position: relative;
+    top: 370px;
+    left: 9px;
+}
+
+.weather-time-text {
+    font-size: 35px;
+    position: relative;
+    top: -84px;
+    left: 103px;
+    font-family: 'source_sans_proregular';
+}
+
+.timeline-divider {
+    position: absolute;
+    top: -79px;
+    left: 105px;
+    border-top: 3px white dashed;
+    width: 1660px;
+}
+
+.raining-icon {
+    position: relative;
+    top: -225px;
+    left: 92px;
+}
+
+.now-icon {
+    position: relative;
+    top: -30px;
+    left: 105px;
+}
+
+.weather-time-text-alt {
+    font-size: 35px;
+    position: relative;
+    top: -84px;
+    left: 103px;
+    font-family: 'source_sans_proregular';
+}
+
+.now-icon-alt {
+    position: relative;
+    top: -95px;
+    left: 105px;
+}
+
+.weather-time-text-alt-2 {
+    font-size: 35px;
+    position: relative;
+    top: -145px;
+    left: 103px;
+    font-family: 'source_sans_proregular';
+}
+
+.rainy-div {
+    position: relative;
+    top: -210px;
+    left: 160px;
+    border-top: 3px white dashed;
+    width: 1544px;
+}
+
+.sunny-div {
+    position: relative;
+    top: -212px;
+    left: 105px;
+    border-top: 3px white dashed;
+    width: 1610px;
+}
+
+.umbrella {
+    background-image: url('/rain.png');
+    background-repeat: no-repeat;
+    background-position: -3px -333px;
+    animation: letItRain 3s infinite normal;
+    -webkit-animation: letItRain 3s infinite normal;
+    animation-timing-function: linear;
+    -webkit-animation-timing-function: linear;
+    height: 334px;
+    display: inline-block;
+    position: relative;
+    left: 750px;
+    top: 205px;
+}
+
+@keyframes letItRain
+{
+    0%   {background-position: -3px -333px;}
+    100% {background-position: -3px 300px;}
+}
+
+@-webkit-keyframes letItRain
+{
+    0%   {background-position: -3px -333px;}
+    100% {background-position: -3px 300px;}
+}

@@ -1,0 +1,185 @@
+/* <Global Slide Dimensions>*/
+html,
+body {
+    min-width: 1920px;
+    min-height: 1080px;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    background-color: black !important;
+    /* The html and body elements cannot have any padding or margin. */
+}
+
+.container-fluid {
+    width: 1920px;
+    height: 1080px;
+    padding: 0;
+    color: #031C3E;
+    overflow: hidden;
+}
+
+.top-row {
+    height: 132px;
+    background-color: #A21349;
+}
+
+.center-row {
+    height: 880px;
+}
+/* </Global Slide Dimensions> */
+/* <Global Fonts> */
+@font-face {
+    font-family: 'source_sans_prolight';
+    src: url('/fonts/sourcesanspro-light-webfont.eot');
+    src: url('/fonts/sourcesanspro-light-webfont.eot?#iefix') format('embedded-opentype'),
+    url('/fonts/sourcesanspro-light-webfont.woff') format('woff'),
+    url('/fonts/sourcesanspro-light-webfont.ttf') format('truetype'),
+    url('/fonts/sourcesanspro-light-webfont.svg#source_sans_prolight') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'source_sans_prosemibold';
+    src: url('/fonts/sourcesanspro-semibold-webfont.eot');
+    src: url('/fonts/sourcesanspro-semibold-webfont.eot?#iefix') format('embedded-opentype'),
+    url('/fonts/sourcesanspro-semibold-webfont.woff') format('woff'),
+    url('/fonts/sourcesanspro-semibold-webfont.ttf') format('truetype'),
+    url('/fonts/sourcesanspro-semibold-webfont.svg#source_sans_prosemibold') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'source_sans_problack';
+    src: url('/fonts/sourcesanspro-black-webfont.eot');
+    src: url('/fonts/sourcesanspro-black-webfont.eot?#iefix') format('embedded-opentype'),
+    url('/fonts/sourcesanspro-black-webfont.woff') format('woff'),
+    url('/fonts/sourcesanspro-black-webfont.ttf') format('truetype'),
+    url('/fonts/sourcesanspro-black-webfont.svg#source_sans_problack') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'source_sans_proregular';
+    src: url('/fonts/sourcesanspro-regular-webfont.eot');
+    src: url('/fonts/sourcesanspro-regular-webfont.eot?#iefix') format('embedded-opentype'),
+    url('/fonts/sourcesanspro-regular-webfont.woff') format('woff'),
+    url('/fonts/sourcesanspro-regular-webfont.ttf') format('truetype'),
+    url('/fonts/sourcesanspro-regular-webfont.svg#source_sans_proregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+/* </Global Fonts> */
+/* <Global transitions> */
+.active {
+    opacity: 1 !important;
+    transform: scale(1) !important;
+    -webkit-transform: scale(1) !important;
+    -moz-transform: scale(1) !important;
+    transition: all 2s ease-in-out;
+    -moz-transition: all 2s ease-in-out;
+    -webkit-transition: all 2s ease-in-out;
+}
+
+.inactive {
+    opacity: 0;
+    transform: scale(0.8);
+    -webkit-transform: scale(0.8);
+    -moz-transform: scale(0.8);
+    transition: all 2s ease-in-out;
+    -moz-transition: all 2s ease-in-out;
+    -webkit-transition: all 2s ease-in-out;
+}
+/* </Global Transitions> */
+/* <Global Element Overrides> */
+li {
+    line-height: inherit !important;
+}
+
+ul > li > span {
+    color: black;
+    line-height: 36px;
+}
+/* </Global Element Overrides> */
+/* <Global Template Elements> */
+.clock {
+    position: relative;
+    left: -8px;
+    top: 20px;
+    right: 27px;
+}
+
+.clock-time {
+    font-size: 54px;
+    font-family: 'source_sans_problack';
+}
+
+.date-time {
+    position: relative;
+    bottom: 27px;
+    left: 2px;
+    font-family: 'source_sans_proregular';
+    font-size: 16px;
+}
+
+.app-stars {
+    height: 100px;
+}
+
+.app-star-green {
+    margin-left: 9px;
+    margin-right: 9px;
+    border-radius: 200px;
+    height: 82px;
+    width: 82px;
+    position: relative;
+    left: 50px;
+    top: 24px;
+    border: white solid;
+}
+
+.app-star-red {
+    margin-left: 9px;
+    margin-right: 9px;
+    border-radius: 200px;
+    height: 82px;
+    width: 82px;
+    position: relative;
+    left: 50px;
+    top: 24px;
+    border: #D42A32 solid;
+}
+
+.slide-countdown {
+    position: relative;
+    top: 0px;
+    width: 1920px;
+    left: -15px;
+    height: 20px !important;
+    background-image: none !important;
+    background-color: white !important;
+    margin-bottom: 0;
+    box-shadow: none !important;
+    border-radius: 0 !important;
+}
+
+.progress-bar-slide-countdown {
+    height: 5px !important;
+    position: relative;
+    top: 8px;
+    background-image: none;
+    background-color: #6EAEDB;
+}
+
+.bottom-row {
+    height: 126px;
+    position: absolute;
+    bottom: 0;
+    background-color: #dbdbdb;
+}
+/* </Global Template Elements> */

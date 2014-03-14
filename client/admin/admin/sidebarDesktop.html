@@ -1,0 +1,46 @@
+<template name="sidebarDesktop">
+    <div id="home" class="inactive-menu logo-menu">
+        <a href="#">
+            <img src="admin/jeeves-logo-menu.png" class="menu-item-img">
+            {{#if isActiveMenuItem "admin"}}
+                <span class="active-pointer-icon glyphicon glyphicon-chevron-right"></span>
+            {{/if}}
+        </a>
+    </div>
+    <div id="slides" class="menu-item {{isActiveMenuItemClass 'editSlide'}}">
+        <a href="#">
+            <span class="{{isActiveMenuGlyphiconClass 'editSlide'}} glyphicon glyphicon-align-justify"></span>
+            <span class="{{isActiveMenuTextClass 'editSlide'}}">Slides</span>
+            {{#if isActiveMenuItem "editSlide"}}
+            <span class="active-pointer-icon glyphicon glyphicon-chevron-right"></span>
+            {{/if}}
+        </a>
+    </div>
+    <div id="add-slide" class="{{isActiveMenuItemClass 'addSlide'}}">
+        <a href="#">
+            <span class="{{isActiveMenuGlyphiconClass 'addSlide'}} glyphicon glyphicon-plus"></span>
+            <span class="{{isActiveMenuTextClass 'addSlide'}}">Add slide</span>
+            {{#if isActiveMenuItem "addSlide"}}
+            <span class="active-pointer-icon glyphicon glyphicon-chevron-right"></span>
+            {{/if}}
+        </a>
+    </div>
+    <div id="screen" class="{{isActiveMenuItemClass 'editScreen'}}">
+        <a href="#">
+            <span class="{{isActiveMenuGlyphiconClass 'editScreen'}} glyphicon glyphicon-expand"></span>
+            <span class="{{isActiveMenuTextClass 'editScreen'}}">Manage screen</span>
+            {{#if isActiveMenuItem "editScreen"}}
+            <span class="active-pointer-icon glyphicon glyphicon-chevron-right"></span>
+            {{/if}}
+        </a>
+    </div>
+    <div id="account" class="{{isActiveMenuItemClass 'account'}}">
+        <a href="#">
+            <span class="{{isActiveMenuGlyphiconClass 'account'}} glyphicon glyphicon-cog"></span>
+            <span class="{{isActiveMenuTextClass 'account'}}">Account</span>
+            {{#if isActiveMenuItem "account"}}
+            <span class="active-pointer-icon glyphicon glyphicon-chevron-right"></span>
+            {{/if}}
+        </a>
+    </div>
+</template>

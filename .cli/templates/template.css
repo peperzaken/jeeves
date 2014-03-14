@@ -1,0 +1,17 @@
+.top-row-$NAME {
+    height: 132px;
+    background-color: #FFC100;
+}
+
+.header-text-$NAME {
+    position: relative;
+    left: 706px;
+    top: 32px;
+    font-size: 57px;
+    color: #031C3E;
+    font-family: 'source_sans_prosemibold';
+}
+
+.center-row-$NAME {
+    background-color: #031C3E;
+}

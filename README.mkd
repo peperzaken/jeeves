@@ -1,0 +1,178 @@
+# Jeeves
+Jeeves is an easy-to-use framework used to create narrowcasting systems. Jeeves is built on top of [Meteor](https://www.meteor.com/), making it a powerful tool for creating data dependent narrowcasting systems.
+
+# Okay... so how does it work?
+Jeeves, your personal valet, works by providing developers and enthusiasts alike an easy interface for creating 'slides' and managing the system. Some of the features included with Jeeves are:
+
+* Slide configuration (when do you want a slide to be shown? For how long? etc.)
+* Screen manipulation (instantly switch slides on registered screen)
+* Easy and rapid slide development using Meteor.
+* Predefined templates to use with your slides.
+
+# A 'slide' you say? What's that!?
+A slide is what we define to be the 'view' of the application. You can show any kind of information you want on your slide, be it the number of people currently visiting your website or the number of purchases done through your ecommerce system. The slides can be developed with HTML/CSS/JS.
+
+Slides are, in a way, the plugins of Jeeves. This means that you can download slides other people created and add them to your own installation to fully personalise your narrowcasting system.
+
+# Sounds good! So, how do I set it up?
+First, you will need to download and cd to the source code by cloning the git repository:
+```
+git clone <urlhere>
+cd Jeeves
+```
+Secondly, you will need Meteor to run the app with:
+```
+curl https://install.meteor.com/ | sh
+```
+And last you'll have to install Meteorite to install additional packages with:
+```
+npm install -g meteorite
+```
+Or if you need to install global packages with root, run:
+```
+sudo -H npm install -g meteorite
+```
+After installing all the required prerequisites you'll be able to run Jeeves by running:
+```
+mrt
+```
+This will make meteorite download the required packages and and start Jeeves afterward. Now if you'll go to [http://localhost:3000](http://localhost:3000), you'll be greeted by Jeeves!
+
+# How do I make my own slides?
+Before you start developing slides for Jeeves you'll need to learn about Meteor and its practices. Here are some resources which will get you started:
+
+* [Tutorial on Meteor](http://net.tutsplus.com/tutorials/javascript-ajax/prototyping-with-meteor/)
+* [Examples provided by Meteor](https://www.meteor.com/examples/)
+* [Book about Meteor](http://www.discovermeteor.com/)
+
+We've automated some best practices for you and created a CLI for Jeeves. This tool  will easily create all the necessary files for you to create your own slide. Inside of the root folder, execute the following commands:
+```
+cd .cli/
+python jeeves.py create_slide <name of your slide>
+```
+This will create the necessary files for you in ```client/slides/<name of your slide>``` and add your slide to the router. It will also create a directory in ```public/slides/<name of your slide>/``` in which you can put your assets such as js libs, images, etc. Now go ahead and edit the files to create your own slide!
+
+There's two ways of creating slides. The first being making a slide without using external data-sources. Creating a slide like this will only require the files created by the CLI tool. The second way to create a slide is to create one with external data-sources, more information about this method can be found further down this page.
+
+For more information, in particular about the possibilities of Meteor, consult the [Meteor documentation.](http://docs.meteor.com/)
+
+# What's where?
+The directory structure as used by Meteor has been preserved as well as possible, expanding on their best practices where necessary. (You can read more about Meteor and it's directory structure [here](http://andrewscala.com/meteor/))
+
+Client-side structure:
+```
+client/ --> Files in this directory will be sent to the client.
+├── admin/ --> Files regarding the admin panel are stored here.
+├── index.html
+├── lobby/ --> Index screen for registering your application
+├── main.global-css.css --> This file is used for global CSS values.
+├── main.global-helpers.js --> This file is used for global JS functions/values
+├── slides/ --> This directory is used to store all the slides. Note: Only place DIRECTORIES directly into this map!
+│   ├── beertime/
+│   │   ├── beertime.css --> Slide file for storing CSS.
+│   │   ├── beertime.html --> Slide file for HTML.
+│   │   └── beertime.js --> Slide file for JS functions.
+│   ├── beertime-time/
+│   ├── druppel/
+│   ├── global/ --> Directory for storing global templates (clock, users, etc.)
+│   ├── jiraProgress/
+│   ├── jiraReleases/
+│   ├── toggl/
+│   └── users/
+└── welcome/
+```
+
+Server-side structure:
+```
+server/ --> Files in this directory will NOT be sent to the client.
+├── main.js --> This script is used to start up and initialise the app correclty.
+└── slides/ --> This directory is used to store all data dependent slides.
+    ├── druppel/
+    │   └── sources.js --> File containing data calls to external services.
+    ├── jiraProgress/
+    ├── jiraReleases/
+    ├── toggl/
+    └── users/
+```
+
+Note that there's a ```public/``` map which serves all files in it to the client. For every slide you make you should also create a directory in ```public/slides/nameOfYourSlide/``` contain at least one file (you can use a ```.gitkeep``` file for ease of use). This should be done for the admin system to recognise how many slides the system has and which one are yet available for installation.
+
+# How can I use external data sources in my slide?
+Sometimes you want to use data that comes from elsewhere, doing so for Jeeves is relatively simple. There are multiple ways to get data from external sources but for now we'll focus on polling as our data acquisition method. We'll take the Jira slide as an example.
+
+First, let's create a collection in ```lib/database.js``` to store our data in.
+```javascript
+//#lib/database.js
+/**
+ * Collection for storing Jira data
+ * @type {Meteor.Collection}
+ */
+Jira = new Meteor.Collection( 'jira' );
+```
+
+And let's create a directory in ```server/slides/jiraProgress``` with a ```sources.js``` file to put our code in. We'll include some libraries from NPM which we'll use to query the API.
+```javascript
+//#server/slides/jiraProgress/sources.js
+var JiraApi = Meteor.require('jira').JiraApi;
+var jira = new JiraApi('https', 'jira.mycompany.com', '8080', 'my-account', 'my-pw', '2');
+```
+And to put it all together, here's our function:
+```javascript
+//#server/slides/jiraProgress/sources.js
+function getJiraProgress() {
+    var onComplete = Meteor.bindEnvironment(function( err, res ) {
+        if (err) log.error(err);
+        Jira.update(
+            { date: new Date().toDateString() }, 
+            { $set: { progress: issues } }, 
+            { upsert: true }
+        );
+    }, function( err ) {
+        log.error(err);
+    });
+
+    var options = {
+        maxResults: 4,
+        fields: ['*navigable']
+    };
+
+    jira.searchJira('status = "In Progress" ORDER BY updatedDate', options, onComplete);
+}
+```
+Note that in order to run meteor methods inside asynchronous methods, such as ```searchJira``` in the example above, you'll have to wrap your code inside ```Meteor.bindEnvironment```. (learn more about this mind-fuck [here](https://www.eventedmind.com/feed/49CkbYeyKoa7MyH5R))
+
+But we're not done yet since the method isn't run anywhere! We'll make use of Meteor's internal ```Meteor.startup``` to setup the polling.
+```
+Meteor.startup( function() {
+    getJiraProgress();
+    Meteor.setInterval( function() {
+        getJiraProgress();
+    }, 60 * 1000);
+});
+```
+By calling ```Meteor.startup```, we're making sure that this code gets run on startup of the server, making sure that our polling is set-up correctly.
+
+And with that we've set-up our first external data-source.
+
+Though we don't have access to it on the client yet. To do that, we'll have to set up the necessary [publish/subscribe](http://docs.meteor.com/#publishandsubscribe) functions, which will look something like this:
+```javascript
+//#server/main.js
+Meteor.publish('jira', function() {
+    return Jira.find( { date: new Date().toDateString() } );
+});
+
+
+//#client/slides/jiraProgress/jiraProgress.js
+Meteor.subscribe( 'jira' );
+```
+
+# Administration tools
+Jeeves comes with a set of administration tools which you can use to customise and control your own installation. In order to set-up your installation you'll have to add slides. This can be done via the administration tool, available at ```/admin``` For first time users, an admin account has been created with the username ```admin``` and password ```admin```. Please be sure to change this password as soon as possible.
+
+# Additional slides
+During the development of Jeeves, a wide array of slides have been developed. Some of the developed slides include:
+
+* A [Toggl](https://www.toggl.com/) slide
+* Slides for [Jira](https://www.atlassian.com/software/jira)
+
+Although we'd love to share these slides with you, we were unable to open source them. If, however, you'd like to have these slides, please contact us at [rubenhoms@gmail.com](mailto:rubenhoms@gmail.com)

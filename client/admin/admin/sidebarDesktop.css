@@ -1,0 +1,59 @@
+.sidebar-desktop {
+    height: 20%;
+    width: 100%;
+    -moz-box-shadow: 0 0 5px #888;
+    -webkit-box-shadow: 0 0 5px#888;
+    box-shadow: 0 0 5px #888;
+    text-align: center;
+    padding: 0 !important;
+}
+
+.menu-item-glyphicon {
+    color: #DFDFDF;
+    font-size: 40px;
+    padding-bottom: 15px;
+}
+
+.menu-item-img {
+    color: #DFDFDF;
+    font-size: 40px;
+}
+
+.menu-item-txt {
+    display: block;
+    color: #DFDFDF;
+    font-size: 19px;
+}
+
+.menu-item {
+    border: 1px solid;
+    padding-top: 55px;
+    padding-bottom: 38px;
+    background-color: #2C2D2D;
+    position: relative;
+}
+
+.active-menu {
+    background-color: #DFDFDF;
+}
+
+.menu-item-txt-active {
+    display: block;
+    color: #2C2D2D;
+    font-size: 19px;
+}
+
+.menu-item-glyphicon-active {
+    color: #2C2D2D;
+    font-size: 40px;
+    padding-bottom: 15px;
+}
+
+.active-pointer-icon {
+    position: absolute !important;
+    left: 200px;
+    top: 55px !important;
+    font-size: 74px;
+    z-index: -1;
+    color: #DFDFDF;
+}

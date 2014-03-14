@@ -1,0 +1,250 @@
+<template name="addSlide">
+    {{#unless isAdmin}}
+        {{redirectToLogin}}
+    {{/unless}}
+    <style>
+        html, body {
+            min-width: 0;
+            min-height: 0;
+            background-color: #F8F8F8 !important;
+            /* The html and body elements cannot have any padding or margin. */
+        }
+    </style>
+    <script src="slidebars.min.js"></script>
+    <link rel="stylesheet" href="slidebars.min.css">
+    <div class="col-md2 sidebar-mobile" data-spy="affix">
+        <div class="boundaries-menu sb-toggle-left"><span class="glyphicon glyphicon-align-justify span-class-mobile"></span></div>
+        <img src="admin/mobile-banner.png" class="mobile-banner-img">
+    </div>
+    <div id="sb-site">
+        <div class="main-panel">
+            <div class="row">
+                <div class="col-md-2 sidebar-desktop">
+                    {{> sidebarDesktop}}
+                </div>
+                <div class="col-md-10 main-panel-body main-edit-slide">
+                    {{#if availableSlides}}
+                    <h1>Add a new slide</h1>
+                    <form role="form" class="form-horizontal">
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <select class="form-control" id="name">
+                                {{#each availableSlides}}
+                                <option value="{{this}}">{{this}}</option>
+                                {{/each}}
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="screenTime">Screen time (in seconds)</label>
+                            <input class="form-control" type="text" id="screenTime">
+                        </div>
+                        <div class="form-group">
+                            <label for="category">Category</label>
+                            <select class="form-control" id="category">
+                                <option>all</option>
+                                <option>dev</option>
+                                <option>sales</option>
+                                <option>HRM</option>
+                            </select>
+                        </div>
+                        <!-- Calendar function goes here -->
+                        <form role="form" class="form-horizontal">
+                            <div class="form-group">
+                                <label class="col-lg-3 control-label input-sm">Monday</label>
+                                <div class="col-lg-7">
+                                    <div class="form-inline">
+                                        <div class="form-group ">
+                                            <div class="col-lg-5">
+                                                <label class="sr-only" for="fromMonday">From</label>
+                                                {{{hourSelector "fromMonday" "From"}}}
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="col-lg-5">
+                                                <label class="sr-only" for="toMonday">To</label>
+                                                {{{hourSelector "toMonday" "To"}}}
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="col-lg-5">
+                                                <label for="allMonday">All day</label>
+                                                <input type="checkbox" id="allMonday">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-lg-3 control-label input-sm">Tuesday</label>
+                                <div class="col-lg-7">
+                                    <div class="form-inline">
+                                        <div class="form-group ">
+                                            <div class="col-lg-5">
+                                                <label class="sr-only" for="fromTuesday">From</label>
+                                                {{{hourSelector "fromTuesday" "From"}}}
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="col-lg-5">
+                                                <label class="sr-only" for="toTuesday">To</label>
+                                                {{{hourSelector "toTuesday" "To"}}}
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="col-lg-5">
+                                                <label for="allTuesday">All day</label>
+                                                <input type="checkbox" id="allTuesday">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-lg-3 control-label input-sm">Wednesday</label>
+                                <div class="col-lg-7">
+                                    <div class="form-inline">
+                                        <div class="form-group ">
+                                            <div class="col-lg-5">
+                                                <label class="sr-only" for="fromWednesday">From</label>
+                                                {{{hourSelector "fromWednesday" "From"}}}
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="col-lg-5">
+                                                <label class="sr-only" for="toWednesday">To</label>
+                                                {{{hourSelector "toWednesday" "To"}}}
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="col-lg-5">
+                                                <label for="allWednesday">All day</label>
+                                                <input type="checkbox" id="allWednesday">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-lg-3 control-label input-sm">Thursday</label>
+                                <div class="col-lg-7">
+                                    <div class="form-inline">
+                                        <div class="form-group ">
+                                            <div class="col-lg-5">
+                                                <label class="sr-only" for="fromThursday">From</label>
+                                                {{{hourSelector "fromThursday" "From"}}}
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="col-lg-5">
+                                                <label class="sr-only" for="toThursday">To</label>
+                                                {{{hourSelector "toThursday" "To"}}}
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="col-lg-5">
+                                                <label for="allThursday">All day</label>
+                                                <input type="checkbox" id="allThursday">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-lg-3 control-label input-sm">Friday</label>
+                                <div class="col-lg-7">
+                                    <div class="form-inline">
+                                        <div class="form-group ">
+                                            <div class="col-lg-5">
+                                                <label class="sr-only" for="fromFriday">From</label>
+                                                {{{hourSelector "fromFriday" "From"}}}
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="col-lg-5">
+                                                <label class="sr-only" for="toFriday">To</label>
+                                                {{{hourSelector "toFriday" "To"}}}
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="col-lg-5">
+                                                <label for="allFriday">All day</label>
+                                                <input type="checkbox" id="allFriday">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-lg-3 control-label input-sm">Saturday</label>
+                                <div class="col-lg-7">
+                                    <div class="form-inline">
+                                        <div class="form-group ">
+                                            <div class="col-lg-5">
+                                                <label class="sr-only" for="fromSaturday">From</label>
+                                                {{{hourSelector "fromSaturday" "From"}}}
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="col-lg-5">
+                                                <label class="sr-only" for="toSaturday">To</label>
+                                                {{{hourSelector "toSaturday" "To"}}}
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="col-lg-5">
+                                                <label for="allSaturday">All day</label>
+                                                <input type="checkbox" id="allSaturday">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-lg-3 control-label input-sm">Sunday</label>
+                                <div class="col-lg-7">
+                                    <div class="form-inline">
+                                        <div class="form-group ">
+                                            <div class="col-lg-5">
+                                                <label class="sr-only" for="fromSunday">From</label>
+                                                {{{hourSelector "fromSunday" "From"}}}
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="col-lg-5">
+                                                <label class="sr-only" for="toSunday">To</label>
+                                                {{{hourSelector "toSunday" "To"}}}
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="col-lg-5">
+                                                <label for="allSunday">All day</label>
+                                                <input type="checkbox" id="allSunday">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-primary form-control">Submit</button>
+                        </div>
+                    </form>
+                    {{else}}
+                    <h2>There are no new slides available. To add a new slide, make sure that the files are placed in the correct directory.</h2>
+                    {{/if}}
+                </div>
+            </div>
+        </div>
+    </div>
+    {{loadTimepicker}}
+
+    <div class="sb-slidebar sb-left">
+        {{> slidebar}}
+    </div>
+</template>

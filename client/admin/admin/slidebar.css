@@ -1,0 +1,83 @@
+.first-slidebar-left {
+    margin-top: 45px;
+}
+
+.sidebar-left {
+    height: 18%;
+    -moz-box-shadow: 0 0 5px #888;
+    -webkit-box-shadow: 0 0 5px#888;
+    box-shadow: 0 0 5px #888;
+}
+
+.slidebar-left-txt {
+    position: relative;
+    left: 57px;
+    font-size: 25px;
+    top: 25px;
+}
+
+.slidebar-icon {
+    position: relative;
+    top: 35px !important;
+    font-size: 45px;
+    left: 30px;
+}
+
+#sb-site {
+    padding: 14px;
+    background-color: inherit !important;
+}
+
+.sb-slidebar {
+    padding: 14px;
+    color: #fff;
+}
+
+.sidebar-desktop {
+    width: 30%;
+    height: 100%;
+}
+
+.sidebar-mobile {
+    background-color: #6EAEDB;
+    position: fixed;
+    width: 100%;
+    height: 45px;
+    top: 0px;
+    z-index: 2;
+}
+
+.mobile-banner-img {
+    height: 90%;
+    display: block;
+    margin: auto;
+    position: relative;
+    top: -45px;
+}
+
+.span-class-mobile {
+    color: white;
+    position: relative;
+    top: 10px !important;
+    font-size: 20px;
+    left: 25px !important;
+}
+
+.boundaries-menu {
+    background-color: #2C2D2D;
+    height: 45px;
+    width: 16%;
+}
+
+@media (min-width: 481px) {
+    /* Hide Slidebar control classes for screens over 480px. */
+    .sb-toggle-left, .sb-toggle-right, .sb-open-left, .sb-open-right, .sb-close, .sidebar-mobile, .sb-slidebar {
+        display: none;
+    }
+}
+
+@media (max-width:481px) {
+    .sidebar-desktop {
+        display: none;
+    }
+}

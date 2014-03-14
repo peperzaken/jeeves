@@ -1,0 +1,42 @@
+<template name="lobby">
+    <style>
+        html, body {
+            min-width: 0;
+            min-height: 0;
+            background-color: #F8F8F8 !important;
+            /* The html and body elements cannot have any padding or margin. */
+        }
+    </style>
+    <div class="jeeves-admin-banner">
+        <img src="admin/desktop-banner.png" class="desktop-banner">
+    </div>
+    <div class="container" id="admin-login">
+        <h1 class="text-center"><strong>Register this screen</strong></h1>
+        <div class="panel panel-default panel-admin">
+            <div class="panel-body">
+                <form role="form" id="login-form" action="action">
+                    <div class="form-group">
+                        <label for="name">Screen name</label>
+                        <input class="form-control" type="text" id="name" placeholder="Enter a name to identify this screen by" />
+                    </div>
+                    <div class="form-group">
+                        <label for="category">Category</label>
+                        <select id="category">
+                            <option {{selected "all"}}>all</option>
+                            <option {{selected "dev"}}>dev</option>
+                            <option {{selected "sales"}}>sales</option>
+                            <option {{selected "hrm"}}>HRM</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="remember">Remember me</label>
+                        <input id="remember" type="checkbox" {{checked}}>
+                    </div>
+                    <button type="submit" class="btn btn-info" id="login-button" style="display:block; margin:auto;">Sign in</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    {{onRemember}}
+    {{current_slide "lobby"}}
+</template>

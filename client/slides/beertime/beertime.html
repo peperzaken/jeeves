@@ -1,0 +1,29 @@
+<template name="beertime">
+    <div id="outer-beertime" class="container-fluid inactive">
+        <div class="row-fluid top-row-beertime">
+            <div class="col-md-12 header-text-beertime">IS IT BEERTIME YET?</div>
+        </div>
+
+        <div class="row-fluid center-row center-row-beertime">
+            <div class="col-md-12">
+                <span class="vrijdag">Beer time !</span>
+                <div id="beer-glass" style="{{animationClass}}; -webkit-animation-fill-mode: forwards;animation-fill-mode: forwards;">
+                    <img src="glass-blue.png">
+                </div>
+                <img src="time.png" class="time-scale">
+            </div>
+        </div>
+
+        <div class="row-fluid bottom-row">
+            <div class="col-md-11 app-stars">
+                {{> slideCountdown}}
+            </div>
+            <div class="col-md-1">
+                {{> clock}}
+            </div>
+        </div>
+        {{#isolate}}
+        {{current_slide "beertime"}}
+        {{/isolate}}
+    </div>
+</template>

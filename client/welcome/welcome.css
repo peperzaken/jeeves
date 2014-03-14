@@ -1,0 +1,8 @@
+.welcome-message {
+    text-align: center;
+}
+
+.welcome-loader {
+    display: block;
+    margin: auto;
+}

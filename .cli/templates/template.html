@@ -1,0 +1,27 @@
+<template name="$NAME">
+    <div id="outer-$NAME" class="container-fluid inactive">
+        <div class="row-fluid top-row-$NAME">
+            <div class="col-md-12 header-text-$NAME">$NAME</div>
+        </div>
+
+        <div class="row-fluid center-row center-row-$NAME">
+            <div class="col-md-12">
+                <!-- Content for "$NAME" here -->
+            </div>
+        </div>
+
+        <div class="row-fluid bottom-row">
+            <div class="col-md-11 app-stars">
+                {{> activeUsers}}
+                {{> slideCountdown}}
+            </div>
+            <div class="col-md-1">
+                {{> clock}}
+            </div>
+        </div>
+
+        {{#isolate}}
+            {{current_slide "$NAME"}}
+        {{/isolate}}
+    </div>
+</template>

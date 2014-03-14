@@ -1,0 +1,21 @@
+div.clock .clock-time span {
+    animation: blink 2s;
+    -webkit-animation: blink 2s; /* Safari and Chrome */
+    animation-iteration-count: infinite;
+    -webkit-animation-iteration-count: infinite; /*Safari and Chrome*/
+}
+
+@keyframes blink
+{
+    0%   {opacity: 0;}
+    49%  {opacity: 0;}
+    50%  {opacity: 1;}
+    100% {opacity: 1;}
+}
+
+@-webkit-keyframes blink {
+    0%   {opacity: 0;}
+    49%  {opacity: 0;}
+    50%  {opacity: 1;}
+    100% {opacity: 1;}
+}

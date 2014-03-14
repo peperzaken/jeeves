@@ -1,0 +1,12 @@
+{
+  "packages": {
+    "router": {},
+    "iron-router": {},
+    "npm": {},
+    "winston": {},
+    "flash-messages": {},
+    "user-status": {
+      "git": "https://github.com/mizzao/meteor-user-status"
+    }
+  }
+}
