@@ -4,8 +4,8 @@ Jeeves is an easy-to-use framework used to create narrowcasting systems. Jeeves 
 # Okay... so how does it work?
 Jeeves, your personal valet, works by providing developers and enthusiasts alike an easy interface for creating 'slides' and managing the system. Some of the features included with Jeeves are:
 
-* Slide configuration (when do you want a slide to be shown? For how long? etc.)
-* Screen manipulation (instantly switch slides on registered screen)
+* Slide configuration. (when do you want a slide to be shown? For how long? etc.)
+* Screen manipulation. (instantly switch slides on registered screen)
 * Easy and rapid slide development using Meteor.
 * Predefined templates to use with your slides.
 
@@ -28,7 +28,7 @@ And last you'll have to install Meteorite to install additional packages with:
 ```
 npm install -g meteorite
 ```
-Or if you need to install global packages with root, run:
+Or if you need to install global packages with root privileges, run:
 ```
 sudo -H npm install -g meteorite
 ```
@@ -95,7 +95,7 @@ server/ --> Files in this directory will NOT be sent to the client.
     └── users/
 ```
 
-Note that there's a ```public/``` map which serves all files in it to the client. For every slide you make you should also create a directory in ```public/slides/nameOfYourSlide/``` contain at least one file (you can use a ```.gitkeep``` file for ease of use). This should be done for the admin system to recognise how many slides the system has and which one are yet available for installation.
+Note that there's a ```public/``` map which serves all files in it to the client. For every slide you make you should also create a directory in ```public/slides/nameOfYourSlide/``` contain at least one file (you can use a ```.gitkeep``` file for ease of use). This should be done for the admin system to recognise how many slides the system has and which one are still available for installation.
 
 # How can I use external data sources in my slide?
 Sometimes you want to use data that comes from elsewhere, doing so for Jeeves is relatively simple. There are multiple ways to get data from external sources but for now we'll focus on polling as our data acquisition method. We'll take the Jira slide as an example.
@@ -175,4 +175,4 @@ During the development of Jeeves, a wide array of slides have been developed. So
 * A [Toggl](https://www.toggl.com/) slide
 * Slides for [Jira](https://www.atlassian.com/software/jira)
 
-Although we'd love to share these slides with you, we were unable to open source them. If, however, you'd like to have these slides, please contact us at [rubenhoms@gmail.com](mailto:rubenhoms@gmail.com)
+Although we'd love to share these slides with you, we were unable to open source them. If, however, you'd like to have these slides, please contact me at [rubenhoms@gmail.com](mailto:rubenhoms@gmail.com)

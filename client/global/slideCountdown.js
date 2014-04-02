@@ -40,16 +40,19 @@ var countdownTimer = {
 
 Template.slideCountdown.percentage = function() {
     var percentage = countdownTimer.get( "percentage" );
+    console.log(percentage);
     $('.progress-bar-slide-countdown').css('width', percentage + '%')
 };
 
 function updateCountdownPercentage() {
     var screen = Screens.findOne( amplify.store( 'screenId' ) );
     if ( screen && Session.get( 'totalCountdownTime' ) && Router._currentController.template === screen.currentSlide ) {
-        var now = utils.calcTime('+1').getTime();
+        var now = new Date().getTime();
         var difference = screen.nextSlideAt - now;
+        console.log("Difference", difference);
         if( difference >= 0 ) {
             var percentage = Math.floor( ( utils.toSeconds( difference ) / Session.get( 'totalCountdownTime' ) ) * 100 );
+            console.log("Percentage", percentage);
             percentage = percentage > 100 ? 100 : 100 - percentage;
             countdownTimer.set( "percentage", percentage );
         }
