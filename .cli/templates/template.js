@@ -8,6 +8,7 @@
 Template.$NAME.rendered = function() {
     setTimeout( function() {
         if( $( "#outer-$NAME" ).hasClass( "transitioning" ) ) {
+            // NOP
         } else {
             $("#outer-$NAME").addClass("active");
         }

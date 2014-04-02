@@ -176,3 +176,125 @@ During the development of Jeeves, a wide array of slides have been developed. So
 * Slides for [Jira](https://www.atlassian.com/software/jira)
 
 Although we'd love to share these slides with you, we were unable to open source them. If, however, you'd like to have these slides, please contact me at [rubenhoms@gmail.com](mailto:rubenhoms@gmail.com)
+
+# Slide development tutorial
+To show you the complete process of developing a slide, we're going to create a slide which shows tweets which contain a predefined hashtag. Let's get started!
+
+First off, let's run the generator from the root of our project which will create most of the files for us.
+```
+$ cd .cli/
+$ python jeeves.py create_slide twitter
+Done creating files for "twitter" slide.
+```
+What happened was the following:
+
+* A directory with client templates was created at ```client/slides/twitter/```
+* A directory was created at ```public/slides/twitter/``` containing a ```.gitkeep``` file.
+* A route to the twitter template was added to ```lib/routes.js``` making the resource available at ```/twitter```
+
+This process will create all files needed for creating a slide which doesn't need access to an external data source. We however do need to integrate the Twitter API, so for that we're going to create a javascript file at ```server/slides/twitter``` called ```source.js```
+
+Next we'll need a place to store our data, so we'll go ahead and create a collection in ```lib/database.js``` which we'll use to store the relevant tweets, just like so:
+```javascript
+/**
+ * Collection for storing tweets
+ * @type {Meteor.Collection}
+ */
+Tweets = new Meteor.Collection( 'tweets' );
+```
+For convenience we're going to use the [twitter](https://www.npmjs.org/package/twitter) package from npm to query for tweets. To do this we're going to add the npm package to the ```packages.json``` file in the root directory like so:
+```
+{
+  "twitter": "0.2.9"
+}
+```
+This will make sure that the twitter npm package is available to Meteor. Next, we're going to use it to obtain the tweets. We're going to open the ```sources.js``` and write our program.
+```
+var twitter = Meteor.require('twitter');
+
+var twit = new twitter({
+    consumer_key: 'YOUR KEY HERE',
+    consumer_secret: 'YOUR SECRET HERE',
+    access_token_key: 'YOUR KEY HERE',
+    access_token_secret: 'YOUR SECRET HERE'
+});
+
+var onComplete = Meteor.bindEnvironment(function( tweet ) {
+    // Upsert the received tweet
+    Tweets.upsert( { date: new Date().toDateString() }, { $push: { tweets: tweet } } );
+}, function( err ) {
+    log.error("Error while getting tweets:", err);
+});
+
+// Set up the twitter stream
+twit.stream( 'filter', { track: '#foobar' }, function( stream ) {
+    stream.on( 'data', onComplete );
+});
+```
+Here we setup a streaming connection with the Twitter API, receiving the tweets with ```#foobar``` when they're available instead of polling. On receive we pass the tweet to our ```onComplete``` function which saves the tweet in the database.
+
+Now that we've setup the data connection with Twitter, we'd like to show the data to our user. To do this we'll have to first setup the publish/subscribe connections. Open ```server/main.js``` and add the following line:
+```
+Meteor.publish( 'tweets', function() {
+    return Tweets.find();
+});
+```
+This will setup the publishing of the tweet collection. To subscribe to this collection, open ```client/slides/twitter/twitter.js``` and add the following line:
+```
+Meteor.subscribe( 'tweets' );
+```
+By doing this you're making sure that you'll be able to receive the data on the client.
+
+Next, we'll need two helper functions. One function which grabs the last five tweets and one function which shows us the amount of tweets in our collection.
+```
+Template.twitter.tweetCount = function() {
+    var tweets = Tweets.findOne( { date: new Date().toDateString() });
+    return tweets ? tweets.tweets.length : 0
+};
+
+Template.twitter.lastTweets = function() {
+    var tweets = Tweets.findOne( { date: new Date().toDateString() });
+    if( tweets ) {
+        return tweets.tweets.slice( Math.max( tweets.tweets.length - 5,0 ) );
+    }
+};
+```
+We're almost done with developing the slide. Now we just need to create a HTML template for the data to reside in. You can do this anyway you'd like, but just for teaching purposes I've created a really simple template in ```client/slides/twitter/twitter.html```:
+```
+<template name="twitter">
+    <div id="outer-twitter" class="container-fluid inactive">
+        <div class="row-fluid top-row-twitter">
+            <div class="col-md-12 header-text-twitter">twitter</div>
+        </div>
+
+        <div class="row-fluid center-row center-row-twitter">
+            <div class="col-md-12">
+                {{#isolate}}
+                <h1 class="tweet-count">Number of tweets: {{ tweetCount }}</h1>
+                <div class="last-tweets">
+                    <ul>
+                        {{#each lastTweets}}
+                        <li>{{text}}</li>
+                        {{/each}}
+                    </ul>
+                </div>
+                {{/isolate}}
+            </div>
+        </div>
+
+        <div class="row-fluid bottom-row">
+            <div class="col-md-11 app-stars">
+                {{> slideCountdown}}
+            </div>
+            <div class="col-md-1">
+                {{> clock}}
+            </div>
+        </div>
+
+        {{#isolate}}
+            {{current_slide "twitter"}}
+        {{/isolate}}
+    </div>
+</template>
+```
+And we're done developing the slide! You can now make it available to the scheduler by browsing to ```/admin``` and using the "Add slide" functionality.
