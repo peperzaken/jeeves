@@ -20,7 +20,7 @@ First, you will need to download and cd to the source code by cloning the git re
 git clone <urlhere>
 cd Jeeves
 ```
-Secondly, you will need Meteor to run the app with:
+Secondly, you will need Meteor to run the app with. Note that Jeeves was tested to work with Meteor 0.8. Although it should work with lower versions, to be completely sure just install the newest Meteor version:
 ```
 curl https://install.meteor.com/ | sh
 ```

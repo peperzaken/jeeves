@@ -1,7 +1,7 @@
 /**
  * @author Ruben Homs <rubenhoms@gmail.com>
  */
-Template["admin-index"].events({
+Template["adminIndex"].events({
     'click #logout': function( e ) {
         e.preventDefault();
         Meteor.logout();
