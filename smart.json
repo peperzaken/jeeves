@@ -1,5 +1,6 @@
 {
   "packages": {
+    "router": {},
     "iron-router": {},
     "npm": {},
     "winston": {},
