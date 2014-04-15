@@ -19,7 +19,7 @@ You'll need to have [nodejs + npm](http://nodejs.org/) installed before starting
 
 First, you will need to download and cd to the source code by cloning the git repository:
 ```
-git clone <urlhere>
+git clone git@github.com:peperzaken/jeeves.git
 cd Jeeves
 ```
 Secondly, you will need Meteor to run the app with. Note that Jeeves was tested to work with Meteor 0.8. Although it should work with lower versions, to be completely sure just install the newest Meteor version:
