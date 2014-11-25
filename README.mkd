@@ -1,3 +1,6 @@
+# INCOMPATIBLE
+At this moment it doesn't work out of the box. AppStars at Peperzaken are working on this issue.
+
 # Jeeves
 Jeeves is an easy-to-use framework used to create narrowcasting systems. Jeeves is built on top of [Meteor](https://www.meteor.com/), making it a powerful tool for creating data dependent narrowcasting systems.
 
