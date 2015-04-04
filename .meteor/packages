@@ -6,20 +6,25 @@
 standard-app-packages
 insecure
 
-page-js-ie-support
-HTML5-History-API
+meteor-platform
 
-iron-router
-router
-npm
+tmeasday:page-js-ie-support
+tmeasday:html5-history-api
 
-winston
+iron:router
+# router
+meteorhacks:npm
+
+duongthienduc:meteor-winston
 
 amplify
 accounts-password
 accounts-ui
 bootstrap
 
-flash-messages
-user-status
+mrt:flash-messages
+mizzao:user-status
 http
+
+
+npm-container
