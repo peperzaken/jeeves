@@ -15,7 +15,7 @@ function getSlidesInClientMap() {
         log.error("Error while getting available slides for admin panel: " + err.toString());
     });
 
-    var fs = Meteor.require('fs');
+    var fs = Meteor.npmRequire('fs');
 
     // This is the path used for running localhost (non bundled)
     var localPath = '../../../../../client/slides/';

@@ -3,7 +3,7 @@
  * @since 11/27/13
  * @version 0.1
  */
-var restify = Meteor.require( 'restify' );
+var restify = Meteor.npmRequire( 'restify' );
 
 /**
  * This function gets the weather forecast (percentages per 15 minutes)
