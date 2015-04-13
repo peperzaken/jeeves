@@ -1,6 +1,3 @@
-# INCOMPATIBLE
-At this moment it doesn't work out of the box. AppStars at Peperzaken are working on this issue.
-
 # Jeeves
 Jeeves is an easy-to-use framework used to create narrowcasting systems. Jeeves is built on top of [Meteor](https://www.meteor.com/), making it a powerful tool for creating data dependent narrowcasting systems.
 
@@ -25,7 +22,7 @@ First, you will need to download and cd to the source code by cloning the git re
 git clone git@github.com:peperzaken/jeeves.git
 cd Jeeves
 ```
-Secondly, you will need Meteor to run the app with. Note that Jeeves was tested to work with Meteor 0.8. Although it should work with lower versions, to be completely sure just install the newest Meteor version:
+Secondly, you will need Meteor to run the app with. Note that Jeeves was tested to work with Meteor 1.1. Although it should work with lower versions, to be completely sure just install the newest Meteor version:
 ```
 curl https://install.meteor.com/ | sh
 ```
@@ -303,3 +300,6 @@ We're almost done with developing the slide. Now we just need to create a HTML t
 </template>
 ```
 And we're done developing the slide! You can now make it available to the scheduler by browsing to ```/admin``` and using the "Add slide" functionality.
+
+# Special thanks
+Dennis Stolmeijer for taking the time to fix this broken project. You will be rewarded with beer when near Peperzaken HQ
