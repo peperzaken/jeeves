@@ -15,7 +15,7 @@ A slide is what we define to be the 'view' of the application. You can show any 
 Slides are, in a way, the plugins of Jeeves. This means that you can download slides other people created and add them to your own installation to fully personalise your narrowcasting system.
 
 # Sounds good! So, how do I set it up?
-You'll need to have [nodejs + npm](http://nodejs.org/) installed before starting.
+You'll need to have [nodejs](http://nodejs.org/) installed before starting.
 
 First, you will need to download and cd to the source code by cloning the git repository:
 ```
@@ -26,19 +26,11 @@ Secondly, you will need Meteor to run the app with. Note that Jeeves was tested 
 ```
 curl https://install.meteor.com/ | sh
 ```
-And last you'll have to install Meteorite to install additional packages with:
-```
-npm install -g meteorite
-```
-Or if you need to install global packages with root privileges, run:
-```
-sudo -H npm install -g meteorite
-```
 After installing all the required prerequisites you'll be able to run Jeeves by running:
 ```
-mrt
+meteor
 ```
-This will make meteorite download the required packages and and start Jeeves afterward. Now if you'll go to [http://localhost:3000](http://localhost:3000), you'll be greeted by Jeeves!
+This will make meteor download the required packages and start Jeeves afterwards. Now if you'll go to [http://localhost:3000](http://localhost:3000), you'll be greeted by Jeeves!
 
 # How do I make my own slides?
 Before you start developing slides for Jeeves you'll need to learn about Meteor and its practices. Here are some resources which will get you started:
