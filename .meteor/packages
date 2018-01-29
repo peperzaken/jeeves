@@ -6,7 +6,6 @@
 standard-app-packages
 insecure
 
-meteor-platform
 
 tmeasday:page-js-ie-support
 tmeasday:html5-history-api
@@ -25,6 +24,23 @@ bootstrap
 mrt:flash-messages
 mizzao:user-status
 http
+
+
+meteor-base
+mobile-experience
+mongo
+blaze-html-templates
+session
+jquery
+tracker
+logging
+reload
+random
+ejson
+spacebars
+check
+standard-minifier-css
+standard-minifier-js
 
 
 npm-container
